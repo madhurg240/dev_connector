@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import AddDeveloper from './pages/AddDeveloper';
+import AllDevelopers from './pages/AllDevelopers';
+import DeveloperProfile from './pages/Profile';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-gray-100 text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
+      <Navbar />
+
+      <Routes>
+        {/* ✅ Home Page — All Developers */}
+        <Route path="/" element={<AllDevelopers />} />
+
+        {/* ✅ Add Developer Page */}
+        <Route path="/add-developer" element={<AddDeveloper />} />
+
+        {/* ✅ Developer Profile Page */}
+        <Route path="/profile/:id" element={<DeveloperProfile />} />
+      </Routes>
     </div>
   );
 }
